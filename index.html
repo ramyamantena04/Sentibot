@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sentiment Explorer — Learn Feelings with SentiBot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <h1>Sentiment Explorer 😊</h1>
+      <p class="tagline">Help Mia and SentiBot understand feelings in sentences — try typing a sentence below!</p>
+    </header>
+
+    <main class="main">
+      <!-- Story / Characters -->
+      <section class="card story">
+        <div class="story-left">
+          <div class="character">
+            <div class="avatar">👧</div>
+            <div class="name">Mia</div>
+          </div>
+          <p>Mia writes messages and wants to know if they sound happy, sad, or neutral.</p>
+        </div>
+        <div class="story-right">
+          <div class="character">
+            <div class="avatar">🤖</div>
+            <div class="name">SentiBot</div>
+          </div>
+          <p>SentiBot reads Mia's sentences and explains why they feel a certain way. Let's help SentiBot learn!</p>
+        </div>
+      </section>
+
+      <!-- Analyzer -->
+      <section class="card analyzer">
+        <div class="controls">
+          <label class="mode">
+            <input type="radio" name="mode" value="keyword" checked> Simple (words)
+          </label>
+          <label class="mode">
+            <input type="radio" name="mode" value="emoji"> Emoji
+          </label>
+          <label class="mode">
+            <input type="radio" name="mode" value="both"> Both
+          </label>
+
+          <label class="mode">
+  <input type="radio" name="mode" value="ai"> AI (Hugging Face)
+</label>
+
+
+          <label class="speech">
+            <input type="checkbox" id="speechToggle" checked> SentiBot speaks
+          </label>
+        </div>
+
+        <div class="input-row">
+          <input id="sentenceInput" type="text" placeholder="Type a sentence (e.g., I love school!)" aria-label="Sentence input">
+          <button id="analyzeBtn">Check Sentiment</button>
+        </div>
+
+        <div class="sentibot">
+          <div class="bot-avatar">🤖</div>
+          <div class="bot-bubble" id="botBubble">Hi! I'm SentiBot — type a sentence and I'll tell how it feels.</div>
+        </div>
+
+        <div id="resultPanel" class="result-panel">
+          <div id="sentimentSummary" class="summary">Result will appear here.</div>
+          <div id="confidenceBar" class="confidence">
+            <div id="confidenceFill" style="width:0%">0%</div>
+          </div>
+          <div id="highlighted" class="highlighted"></div>
+        </div>
+
+        <details class="explain" id="explainDetails">
+          <summary>How SentiBot decided (click to expand)</summary>
+          <div id="explainList" class="explain-list"></div>
+        </details>
+      </section>
+
+      <!-- Mini Quiz -->
+      <section class="card quiz" id="quizCard">
+        <h2>Mini-Quiz — pick the feeling!</h2>
+        <div id="quizList" class="quiz-list"></div>
+      </section>
+
+      
+    </main>
+
+    <footer class="footer">
+      <small>Made with ❤️ for the Vizuara Full Stack Intern assignment.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

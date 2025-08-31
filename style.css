@@ -1,0 +1,220 @@
+/* style.css — playful, kid-friendly layout */
+
+:root{
+  --bg1: #fdf6e3;
+  --accent: #ff9aa2;
+  --accent2: #9be7ff;
+  --card: #ffffff;
+  --good: #1abc9c;
+  --bad: #ff6b6b;
+  --neutral: #999999;
+  --shadow: rgba(0,0,0,0.08);
+  --rounded: 14px;
+  --max-width: 900px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, "Comic Sans MS", "Trebuchet MS", sans-serif;
+  background: linear-gradient(135deg,#fffaf0,#e6f7ff 60%);
+  color:#333;
+  display:flex;
+  justify-content:center;
+  padding:24px;
+  min-height:100vh;
+}
+
+.page{
+  width:100%;
+  max-width:var(--max-width);
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:18px;
+}
+
+h1{
+  margin:0;
+  font-size:2.4rem;
+  color:#2d3748;
+}
+
+.tagline{
+  margin:6px 0 0;
+  color:#475569;
+}
+
+.main{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:14px;
+}
+
+/* cards */
+.card{
+  background:var(--card);
+  border-radius:var(--rounded);
+  padding:14px;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+/* story row */
+.story{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px;
+}
+
+.character{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.avatar{
+  font-size:46px;
+  width:64px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:18px;
+  background:linear-gradient(180deg,#fff,#f8fafc);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+.name{font-weight:700;color:#0f172a}
+
+/* analyzer */
+.analyzer .controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+
+.mode input, .speech input{margin-right:8px}
+
+.input-row{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+#sentenceInput{
+  flex:1;
+  font-size:1.05rem;
+  padding:12px 14px;
+  border-radius:12px;
+  border:2px solid #e6eef5;
+  outline:none;
+}
+
+#analyzeBtn{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(255,154,154,0.12);
+  transition: transform .14s ease;
+}
+#analyzeBtn:hover{ transform: translateY(-3px); }
+
+/* bot */
+.sentibot{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin:8px 0;
+}
+
+.bot-avatar{ font-size:44px; }
+.bot-bubble{
+  background: linear-gradient(180deg,#ffffff,#f2fbff);
+  padding:10px 14px;
+  border-radius:12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  max-width:720px;
+}
+
+/* result */
+.result-panel{ margin-top:12px; }
+
+.summary{
+  font-size:1.15rem;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.confidence{
+  height:18px;
+  background:#f1f5f9;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+#confidenceFill{
+  height:100%;
+  width:0%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#05386b;
+  font-weight:700;
+  transition: width .5s ease, background .5s ease;
+}
+
+/* highlighted tokens */
+.highlighted{
+  padding:8px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#fff,#fbfbff);
+  border:1px dashed #f0f4f8;
+  min-height:38px;
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+/* token styles */
+.token{
+  padding:6px 10px;
+  border-radius:10px;
+  font-weight:600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+.token.positive{ background: #e6fffa; color: #006d5b; border:1px solid rgba(0,109,91,0.08) }
+.token.negative{ background: #fff0f0; color: #b00020; border:1px solid rgba(176,0,32,0.06) }
+.token.neutral{ background: #f8fafc; color: #475569; border:1px solid rgba(71,85,105,0.03) }
+
+/* explanation */
+.explain{ margin-top:10px; }
+.explain-list{ padding:12px; background:#fbfdff; border-radius:10px; }
+
+/* quiz */
+.quiz-list{ display:grid; gap:10px; }
+.quiz-item{ padding:10px; border-radius:10px; background:#fff; display:flex; gap:10px; align-items:center; justify-content:space-between }
+.quiz-sentence{ flex:1; margin-right:10px; font-weight:600 }
+.quiz-actions button{ margin-left:6px; padding:8px 12px; border-radius:10px; border:none; cursor:pointer; font-size:1rem }
+
+/* tips */
+.tips ol{ margin:6px 0 0 18px }
+
+/* footer */
+.footer{ text-align:center; color:#6b7280; margin-top:12px; font-size:0.85rem }
+
+/* responsive */
+@media (max-width:720px){
+  .story{ flex-direction:column; gap:12px; }
+  .input-row{ flex-direction:column; }
+  #analyzeBtn{ width:100% }
+}
